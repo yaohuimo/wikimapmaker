@@ -54,6 +54,11 @@ blockquote, q { quotes: "" ""; }
 	color: #4d6580;
 }
 
+#header a { 
+	text-decoration: none;
+	color: #4d6580;
+}
+
 #header p {
         color: #319e9c;
         font-size: 1.1em;
@@ -111,6 +116,7 @@ blockquote, q { quotes: "" ""; }
         color: #17635A;
         font-family: Arial, Verdana, san-serif;
         text-decoration: none;
+	padding: 1.2em 1.2em .2em 1.2em;
 }
 
 #content ul {
@@ -257,6 +263,27 @@ blockquote, q { quotes: "" ""; }
 	padding-top: 1.5em;
 }
 
+/**
+ * Find data styles
+ */
+
+#findcontent {
+	width: 45%;
+	float: left;
+	margin-left: 2em;
+}
+
+#find-providerlist {
+	width: 45%;
+	float: left;
+	padding-left: 2em;
+}
+
+
+/**
+ * Form styles
+ */
+
 button  {
 	border: solid 1px #ccc;
 	padding: .1em;
@@ -269,6 +296,13 @@ input {
         padding: .1em;
 	margin: .1em .2em .1em .2em;
         font-size: 90%;
+}
+
+select {
+	border: solid 1px #ccc;
+	padding: .1em;
+	margin: .1em .2em .1em .2em;
+	font-size: 90%;
 }
 
 .submitbutton {
