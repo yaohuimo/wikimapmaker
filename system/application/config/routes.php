@@ -40,9 +40,10 @@
 |
 */
 
-$route['default_controller'] = "home";
+$route['default_controller'] = "about";
 $route['scaffolding_trigger'] = "";
 
+$route['make'] = "make/baselayer";
 
 /* End of file routes.php */
 /* Location: ./system/application/config/routes.php */

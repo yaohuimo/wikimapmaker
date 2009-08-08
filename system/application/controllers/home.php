@@ -2,24 +2,33 @@
 
 class Home extends Controller {
 
-	function Home()
-	{
-		parent::Controller();	
-	}
-	
-	function index()
-	{
+        var $headerInfo;
+        var $pageInfo;
+
+        function Home()
+        {
+                parent::Controller();
+        }
+
+        function index()
+        {
 
                 // set header info
-                $mHeaderInfo = array();
-                $mHeaderInfo['isMap'] = true;
-                $mHeaderInfo['scriptName'] = 'mapmaker';
-                $mHeaderInfo['baseLayer'] = null;
-                $mHeaderInfo['layers'] = array();
+                $this->headerInfo = array();
+                $this->headerInfo['isMap'] = true;
+                $this->eaderInfo['scriptName'] = 'mapmaker';
+                $this->eaderInfo['baseLayer'] = null;
+                $this->headerInfo['layers'] = array();
 
-		$this->load->view( 'header', $mHeaderInfo );
-		$this->load->view( 'body' );
-		$this->load->view( 'footer' );
+                $this->pageInfo['content'] = <<<EOF
+
+                        <h2 style='font-size:200%;border: solid 1px #ccc;padding:.3em;margin:1em auto 2em auto;width:325px;text-align:center;background:#FEFEFE;'><a href="/make">Make a map</a></h2>
+EOF;
+
+                $this->load->view( 'header', $this->headerInfo );
+                $this->load->view( 'body', $this->pageInfo );
+                $this->load->view( 'footer' );
 	}
+
 }
 

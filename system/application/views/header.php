@@ -3,6 +3,7 @@
 <head>
 	<title>MapMaker</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel='stylesheet' href='/resources/styles/main.css' type='text/css' media='screen' />
 
 	<?php
 
@@ -12,16 +13,6 @@
                 echo "<script type='text/javascript' src='/resources/js/proj4js/lib/proj4js.js'></script>";
                 echo "<script type='text/javascript' src='/resources/js/proj4js/lib/projCode/merc.js'></script>";
                 echo "<script type='text/javascript' src='/resources/js/openlayers/lib/OpenLayers.js'></script>";
-                echo "<script type='text/javascript'>var layers = [];";
-
-                foreach ( $layers as $layer ) {
-                        echo "layers.push( '{$layer}' );";
-                }
-                echo "</script>";
-
-                if ( isset( $markers ) ) {
-                        echo $markers;
-                }
 
                 if ( isset( $scriptName ) ) {
                         if ( is_array( $scriptName ) ) {
@@ -61,10 +52,9 @@
                 });
 
                 </script>";
+
         }
         ?>
-
-        <link rel='stylesheet' href='/resources/styles/main.css' type='text/css' media='screen' />
 
         <?php
                 if ( $isMap ) {
@@ -76,7 +66,7 @@
 
 <div id='page'>
 	<div id='header'>
-		<h1>MapMaker<h1>
+		<h1><a href="/">Wiki MapMaker</a></h1>
 	</div>
 
         <div id='menu'>

@@ -80,7 +80,6 @@ class Make extends Controller {
 			$data['title'] = $this->input->post( 'maptitle' );
 			$data['baselayer'] = $this->session->userdata( 'baselayer' );
 			$this->mapid = $this->mdl_maps->create_map_from_title( $data );
-			echo $this->mapid;
 			$this->pageInfo['step'] = 'params';
 			$this->pageInfo['mapid'] = $this->mapid;
 			$this->load->view( 'body-makemap-steps', $this->pageInfo );
@@ -89,28 +88,10 @@ class Make extends Controller {
                 $this->load->view( 'footer' );
 	}
 
-	function setbaselayer( $layeropt=null ) {
-
-		switch ( $layeropt ) {
-			case 'boundaries':
-				$mapData = array( 'baselayer' => 'boundaries' );
-				$this->session->set_userdata( $mapData );
-				break;
-			case 'osm':
-		                $mapData = array( 'baselayer' => 'osm' );
-	        	        $this->session->set_userdata( $mapData );
-				break;
-			case 'bluemarble':
-				$mapData = array( 'baselayer' => 'bluemarble' );
-				$this->session->set_userdata( $mapData );
-				break;
-		}
-	}
-
 	function params() {
                 // set map options
                 $this->mapOptions = array(
-                        'baselayer' => $this->session->userdate( 'baselayer' );
+                        'baselayer' => $this->session->userdate( 'baselayer' )
                 );
 
                 // set header info
@@ -131,7 +112,6 @@ class Make extends Controller {
                 if ( $this->validation->run() == FALSE ) {
                         $this->load->view( 'body-makemap-steps', $this->pageInfo );
                 } else {
-			echo 'setting params';
                         $this->load->model( 'mdl_maps' );
 			$step = $this->input->post( 'step' );
 			$data['lat'] = $this->input->post( 'latbox' );
@@ -139,6 +119,7 @@ class Make extends Controller {
 			$data['zoom'] = $this->input->post( 'zoombox' );
 			$data['mapid'] = $this->input->post( 'mapid' );
 			$this->mdl_maps->set_zoom( $data );
+			$this->pageInfo['step'] = 'overlays';
                         $this->load->view( 'body-makemap-steps', $this->pageInfo );
                 }
 

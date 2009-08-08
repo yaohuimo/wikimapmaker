@@ -127,9 +127,9 @@
 				echo '<h4>Zoom level</h4>';
 				echo form_input( $zoomdata );
 
-				echo '<h3>Layers</h3>';
-				echo '<h4>Base layer</h4>';
-				echo '<ul><li>Blue Marble</li></ul>';
+//				echo '<h3>Layers</h3>';
+//				echo '<h4>Base layer</h4>';
+//				echo '<ul><li>Blue Marble</li></ul>';
 
 				$hiddendata = array( 
 						'step' => 'overlays',
@@ -156,6 +156,18 @@
 
 				echo '</div>';
 				
+				break;
+
+                        case 'overlays':
+                                echo '<div id="mapoptions">';
+                                echo '<h3>Overlays</h3>';
+
+				echo '<ul>
+					<li>Earthquakes</li>
+					<li>Census data</li>
+					</ul>';
+				
+				echo '</div>';
 				break;
                 }
 	}

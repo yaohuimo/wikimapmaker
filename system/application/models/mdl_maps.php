@@ -24,20 +24,18 @@ class mdl_maps extends Model {
 
 		$this->db->select('id, title', FALSE);
 		$this->db->from( 'maps' );
-		$wheresql = "title = '{$data['title']}'";
-		$this->db->where( 'title', $wheresql, false );
 		$query = $this->db->get();
 
 		if ( $query->num_rows() > 1 ) {
-			echo 'mapid';
 			foreach ( $query->result() as $row ) {
-				$mapid = $row->id;
+				if ( $row->title == $data['title'] ) {
+					$mapid = $row->id;
+				}
 			}
 		} else {
 			$mapid = 'none';
 		}
 	
-		echo $this->db->last_query();
 		return $mapid;
          }
 

@@ -34,13 +34,15 @@
 | the active record class
 */
 
+require_once( 'config/dbconfig.php' );
+
 $active_group = "default";
 $active_record = TRUE;
 
 $db['default']['hostname'] = "localhost";
-$db['default']['username'] = "";
-$db['default']['password'] = "";
-$db['default']['database'] = "";
+$db['default']['username'] = $user;
+$db['default']['password'] = $pass;
+$db['default']['database'] = $dbname;
 $db['default']['dbdriver'] = "postgre";
 $db['default']['dbprefix'] = "";
 $db['default']['pconnect'] = FALSE;
